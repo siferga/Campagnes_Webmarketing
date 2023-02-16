@@ -1,8 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MainController!
+{% block title %}Liste des Campagnes Marketing
+
 {% endblock %}
 
+
 {% block body %}
-	<p>Accueil</p>
+
+	<main class="container">
+		<section class="py-5 text-center container">
+			<div class="row py-lg-5">
+				<div class="col-lg-6 col-md-8 mx-auto">
+					<h1 class="fw-light">Campagnes Marketing</h1>
+					<p class="lead text-muted">Merci de choisir votre preference de recherche</p>
+					<p>
+						<a href="products_index" class="btn btn-primary  btn-lg m-2">Par campagne</a>
+						<a href="#" class="btn btn-primary  btn-lg m-2">Par client</a>
+						<a href="#" class="btn btn-primary  btn-lg m-2">par catégorie</a>
+					</p>
+				</div>
+			</div>
+		</section>
+
+	</main>
 {% endblock %}

@@ -1,19 +1,54 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Accueil
+			{% endblock %}
+			- Site e-commerce Symfony 6</title>
+		<meta
+		name="viewport" content="width=device-width, initial-scale=1.0">
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+		<!-- Feuilles de styles -->
+
+		{% block stylesheets %}<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}"><link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
+		{% endblock %}
+
+		<!-- Fichiers JS -->
+		<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}" defer></script>
+		{% block javascripts %}
+			<script src="https://kit.fontawesome.com/9ff5e7fe9a.js" crossorigin="anonymous"></script>
+		{% endblock %}
+		<script src="{{ asset('assets/js/scripts.js') }}" defer></script>
+	</head>
+	<body>
+		{# header 1 #}
+
+		{% include "_partials/_nav.html.twig" %}
+		{# header 2 #}
+		<div class="container-fluid">
+			<div class="row py-4" style="background-color: #343a55;">
+				<div class="col d-flex justify-content-center">
+					{% if app.user and app.user.isVerified == false %}
+						<span class="text-center" style="color:white;">Bienvenue
+							{{ app.user.email }}
+						</span>
+					{% else %}
+						<span class="text-center" style="color:white;">
+							<h5>Merci de vous connecter
+							</h5>
+
+						</span>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+
+
+		{% include "_partials/_flash.html.twig" %}
+
+		{% block body %}{% endblock %}
+
+		{% include "_partials/_footer.html.twig" %}
+	</body>
 </html>

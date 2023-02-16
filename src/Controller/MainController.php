@@ -8,11 +8,21 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
 {
-    #[Route('/', name: 'app_main')]
+
+    #[Route('/', name: 'main', methods: ['GET'])]
     public function index(): Response
     {
-        return $this->render('main/index.html.twig', [
-            'controller_name' => 'MainController',
-        ]);
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        // $this->denyAccessUnlessGranted(['ROLE_EDIT', 'ROLE_ADMIN']);
+        // return $this->render('main/index.html.twig', [
+        // 'categories' => $categoriesRepository->findBy(
+        //  [],
+        // ['categoryOrder' => 'asc']
+        //  )
+        //]);
+
+        // $allProduct = $doctrine->getRepository(Products::class)->findAll();
+
+        return $this->render('main/index.html.twig');
     }
-}
+};
