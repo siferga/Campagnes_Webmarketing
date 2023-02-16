@@ -1,0 +1,45 @@
+{% extends "base.html.twig" %}
+
+{% block title %}liste d'utilisateurs
+{% endblock %}
+
+{% block body %}
+
+	<main class="container">
+		<section class="row py-4">
+			<div class="col-12">
+				<h1>liste d'utilisateurs</h1>
+			</div>
+			<div class="table-responsive">
+				<table class="table table-striped table-hover table-bordered table-sm ">
+					<thead>
+						<tr>
+							<td>id Utilisateur</td>
+							<td>Prénom</td>
+							<td>Nom</td>
+							<td>Email</td>
+							<td>Role</td>
+
+						</tr>
+					</thead>
+
+					{% for user in allUsers %}
+						<tr>
+							<td>{{ user.id }}</td>
+
+							<td>{{ user.firstname }}</td>
+							<td>{{ user.lastname }}</td>
+							<td>{{ user.email }}</td>
+
+
+						</tr>
+					{% endfor %}
+				</table>
+				<caption>
+					Liste utilisateurs
+				</caption>
+			</div>
+		</section>
+	</main>
+
+{% endblock %}
