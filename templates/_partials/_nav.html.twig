@@ -1,0 +1,82 @@
+<nav class="navbar row py-4 px-3  navbar-expand-lg navbar-light bg-light .sticky">
+	<div
+		class="container-fluid">
+		<!-- path = route vers main. pour clicker sur e_commerce et renenir vers ...-->
+		<a class=" navbar-brand" href=" {{ path('main') }} ">Agence e+p</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li
+					class="nav-item">
+					<!-- Encore route vers main, pour clicker sur accueil et renenir vers les produits et categories-->
+					<a class="nav-link active" aria-current="page" href="{{ path('main') }}">Accueil</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{{ path('products_index') }}">Liste de campagnes</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="{{ path('main') }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Campagnes
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<li>
+							<!-- A CHANGER!!! IL FAUT AFFICHER LE FORMULAIRE POUR CHERCHER LES CAMPAGNES-->
+							<a class="dropdown-item" href="{{ path('products_index') }}">Chercher
+							</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="{{ path('admin_products_add') }}">Ajouter</a>
+						</li>
+						<li><hr class="dropdown-divider"></li>
+						<li>
+							<a class="dropdown-item" href="{{ path('main') }}">Modifier</a>
+						</li>
+
+					</ul>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="{{ path('main') }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Utilisateurs
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<li>
+							<a class="dropdown-item" href="{{ path('main') }}">Chercher
+							</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="{{ path('admin_users_add') }}">Ajouter</a>
+						</li>
+
+						<li>
+							<a class="dropdown-item" href="{{ path('main') }}">Modifier</a>
+						</li>
+						<li><hr class="dropdown-divider"></li>
+						<li>
+							<a class="dropdown-item" href="{{ path('admin_users_index') }}">Liste</a>
+						</li>
+					</ul>
+				</li>
+
+			</ul>
+			<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+				{% if app.user %}
+					<li class="nav-item">
+						<a class="nav-link" href="#">Mon compte</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_logout') }}">Me déconnecter</a>
+					</li>
+				{% else %}
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_register') }}">M'inscrire</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('app_login') }}">Me Connecter</a>
+					</li>
+				{% endif %}
+			</ul>
+		</div>
+	</div>
+</nav>
