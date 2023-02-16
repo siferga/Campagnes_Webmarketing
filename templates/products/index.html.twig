@@ -1,0 +1,38 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Cartes Campagnes Marketing
+{% endblock %}
+
+{% block body %}
+
+	<div class="container fluid">
+		<div class="col">
+			<div class="col py-5 d-flex justify-content-center">
+				<h1>Campagnes Marketing</h1>
+			</div>
+			<div class="row row py-1 row-cols-2 row-cols-md-4">
+
+				{% for product in allProducts %}
+					<div class="col-2 my-1">
+
+						<div class="card h-100 pt-2">
+							<div class="card-body">
+								<h5 class="card-title">{{product.name}}</h5>
+								<p class="card-text">{{product.description}}</p>
+								<p class="card-text">
+									<b>{{product.price}}
+										€</b>
+								</p>
+							</div>
+							<button type="button" class="btn btn-success">Voir client
+							</button>
+						</div>
+					</div>
+
+				{% endfor %}
+
+			</div>
+		</div>
+
+
+	{% endblock %}

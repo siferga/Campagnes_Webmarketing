@@ -1,0 +1,35 @@
+{% extends "base.html.twig" %}
+
+
+{% block title %}liste de campagnes Marketing par categorie
+{% endblock %}
+
+{% block body %}
+	<main class="container">
+		<section class="row">
+			<div class="col-12">
+				<h1>Liste des campagnes Marketing
+				</h1>
+				<h2>par categorie</h2>
+			</div>
+
+			<table>
+				<tr>
+					<td>id</td>
+					<td>Campagne</td>
+					<td>Description</td>
+					<td>Prix/Jour</td>
+
+				</tr>
+				{% for category in allCategories %}
+					<tr>
+						<td>{{ category.id }}</td>
+						<td>{{ category.name }}</td>
+
+					</tr>
+				{% endfor %}
+			</table>
+
+		</section>
+	</main>
+{% endblock %}
