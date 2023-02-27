@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Users;
+use App\Entity\User;
 use App\Form\RegistrationFormType;
 use App\Security\UsersAuthenticator;
 use Doctrine\ORM\EntityManagerInterface;
@@ -24,7 +24,7 @@ class RegistrationController extends AbstractController
         EntityManagerInterface $entityManager
     ): Response {
         //Creation d'un nouveau utilisateur
-        $user = new Users();
+        $user = new User();
         //creation du formulaire
         $form = $this->createForm(RegistrationFormType::class, $user);
         //gestion du formulaire

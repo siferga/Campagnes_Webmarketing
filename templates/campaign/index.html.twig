@@ -1,0 +1,53 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Cartes Campagnes Marketing
+{% endblock %}
+
+{% block body %}
+
+	<div class="container fluid">
+		<div class="col">
+			<div class="col py-5 d-flex justify-content-center">
+				<h1>Campagnes Marketing</h1>
+			</div>
+			<div class="row">
+				<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+					<label class="control-label text-primary " for="imput-select">Chercher Campagne
+					</label>
+					<input type="text" value="" class="form-control"/>
+				</div>
+				<div
+					class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 mb-6">
+					<!-- sucio truco -->
+					<p></p>
+					<!-- fin sucio truco -->
+					<button class="btn btn-primary" type="submit">Filtrar</button>
+					<button class="btn btn-secondary" type="reset">Limpiar</button>
+				</div>
+			</div>
+			<div class="row row py-1 row-cols-2 row-cols-md-4">
+
+				{% for campaign in allCampaigns %}
+					<div class="col-2 my-1">
+
+						<div class="card h-100 pt-2">
+							<div class="card-body">
+								<h5 class="card-title">{{campaign.name}}</h5>
+								<p class="card-text">{{campaign.description}}</p>
+								<p class="card-text">
+									<b>{{campaign.price}}
+										€</b>
+								</p>
+							</div>
+							<button type="button" class="btn btn-success">Voir client
+							</button>
+						</div>
+					</div>
+
+				{% endfor %}
+
+			</div>
+		</div>
+
+
+	{% endblock %}

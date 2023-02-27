@@ -15,13 +15,13 @@ class MainController extends AbstractController
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
         // $this->denyAccessUnlessGranted(['ROLE_EDIT', 'ROLE_ADMIN']);
         // return $this->render('main/index.html.twig', [
-        // 'categories' => $categoriesRepository->findBy(
+        // 'category' => $categoryRepository->findBy(
         //  [],
         // ['categoryOrder' => 'asc']
         //  )
         //]);
 
-        // $allProduct = $doctrine->getRepository(Products::class)->findAll();
+        // $allCampaigns = $doctrine->getRepository(Campaign::class)->findAll();
 
         return $this->render('main/index.html.twig');
     }

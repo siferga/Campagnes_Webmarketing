@@ -9,21 +9,21 @@
 		<meta
 		name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<!-- Feuilles de styles -->
+		<!-- CSS -->
+		<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}"> {% block stylesheets %}{% endblock %}
+		<link
+		rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
 
-		{% block stylesheets %}<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}"><link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
-		{% endblock %}
 
-		<!-- Fichiers JS -->
+		<!-- JS -->
 		<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}" defer></script>
-		{% block javascripts %}
-			<script src="https://kit.fontawesome.com/9ff5e7fe9a.js" crossorigin="anonymous"></script>
-		{% endblock %}
+		{% block javascripts %}{% endblock %}
+		<script src="https://kit.fontawesome.com/9ff5e7fe9a.js" crossorigin="anonymous"></script>
 		<script src="{{ asset('assets/js/scripts.js') }}" defer></script>
 	</head>
+
 	<body>
 		{# header 1 #}
-
 		{% include "_partials/_nav.html.twig" %}
 		{# header 2 #}
 		<div class="container-fluid">
@@ -32,6 +32,13 @@
 					{% if app.user and app.user.isVerified == false %}
 						<span class="text-center" style="color:white;">Bienvenue
 							{{ app.user.email }}
+							<div class="alert alert-warning alert-dismissible" role="alert">
+								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+								<div class="alert-message">
+									<strong>Votre compte n'est pas activé</strong>,
+									<a href="{{ path('resend_verif') }}">renvoyer le lien d'activation</a>
+								</div>
+							</div>
 						</span>
 					{% else %}
 						<span class="text-center" style="color:white;">
@@ -44,7 +51,7 @@
 			</div>
 		</div>
 
-
+		<!--afficher les messages-->
 		{% include "_partials/_flash.html.twig" %}
 
 		{% block body %}{% endblock %}

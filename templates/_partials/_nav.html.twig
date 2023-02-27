@@ -14,7 +14,7 @@
 					<a class="nav-link active" aria-current="page" href="{{ path('main') }}">Accueil</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="{{ path('products_index') }}">Liste de campagnes</a>
+					<a class="nav-link" href="{{ path('admin_campaign_index') }}">Liste de campagnes</a>
 				</li>
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="{{ path('main') }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -23,11 +23,11 @@
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<li>
 							<!-- A CHANGER!!! IL FAUT AFFICHER LE FORMULAIRE POUR CHERCHER LES CAMPAGNES-->
-							<a class="dropdown-item" href="{{ path('products_index') }}">Chercher
+							<a class="dropdown-item" href="{{ path('campaign_index') }}">Chercher
 							</a>
 						</li>
 						<li>
-							<a class="dropdown-item" href="{{ path('admin_products_add') }}">Ajouter</a>
+							<a class="dropdown-item" href="{{ path('admin_campaign_add') }}">Ajouter</a>
 						</li>
 						<li><hr class="dropdown-divider"></li>
 						<li>
@@ -42,11 +42,11 @@
 					</a>
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<li>
-							<a class="dropdown-item" href="{{ path('main') }}">Chercher
+							<a class="dropdown-item" href="{{ path('admin_user_index') }}">Chercher
 							</a>
 						</li>
 						<li>
-							<a class="dropdown-item" href="{{ path('admin_users_add') }}">Ajouter</a>
+							<a class="dropdown-item" href="{{ path('admin_user_add') }}">Ajouter</a>
 						</li>
 
 						<li>
@@ -54,26 +54,34 @@
 						</li>
 						<li><hr class="dropdown-divider"></li>
 						<li>
-							<a class="dropdown-item" href="{{ path('admin_users_index') }}">Liste</a>
+							<a class="dropdown-item" href="{{ path('admin_user_index') }}">Liste</a>
 						</li>
 					</ul>
 				</li>
 
 			</ul>
-			<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+			<ul
+				class="navbar-nav ms-auto mb-2 mb-lg-0">
+				<!-- if a user is connected -->
 				{% if app.user %}
+					<!-- if the connected user has the ROLE_ADMIN-->
+					{% if is_granted('ROLE_ADMIN') %}
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('admin_index')}}">Administration</a>
+						</li>
+					{% endif %}
+					<!-- <li class="nav-item">
+											<a class="nav-link" href="#">Mon compte</a>
+										</li>-->
 					<li class="nav-item">
-						<a class="nav-link" href="#">Mon compte</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{ path('app_logout') }}">Me déconnecter</a>
+						<a class="nav-link" href="{{ path('app_logout') }}">Deconnexion</a>
 					</li>
 				{% else %}
 					<li class="nav-item">
-						<a class="nav-link" href="{{ path('app_register') }}">M'inscrire</a>
+						<a class="nav-link" href="{{ path('app_register') }}">Inscription</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{{ path('app_login') }}">Me Connecter</a>
+						<a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
 					</li>
 				{% endif %}
 			</ul>

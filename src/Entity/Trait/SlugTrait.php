@@ -5,7 +5,7 @@ namespace App\Entity\Trait;
 use Doctrine\ORM\Mapping as ORM;
 
 trait SlugTrait
-{
+{ //colonne de bdd
     #[ORM\Column]
     private ?string $slug = null;
 
