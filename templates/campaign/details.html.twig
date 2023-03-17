@@ -10,9 +10,17 @@
 		<section class="row">
 			<div class="col-12">
 				<h1>Détails de
-					{{ campaign.name }}</h1>
+					{{ campaign.name }}
+				</h1>
 			</div>
 
+			<div class="col-6">
+				<p>{{ campaign.description }}</p>
+				<p>Catégory :
+					{{ campaign.category.name }}</p>
+				<p>Prix :
+					{{ campaign.price / 100 }}€</p>
+			</div>
 
 		</section>
 	</main>
