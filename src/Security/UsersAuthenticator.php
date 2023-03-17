@@ -17,7 +17,7 @@ use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
 class UsersAuthenticator extends AbstractLoginFormAuthenticator
 {
-    use TargetPathTrait; 
+    use TargetPathTrait;
 
     public const LOGIN_ROUTE = 'app_login';
 
@@ -47,8 +47,8 @@ class UsersAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($targetPath);
         }
 
-        // redirection vers main (accueil)
-        return new RedirectResponse($this->urlGenerator->generate('main'));
+        // redirection to profile page
+        return new RedirectResponse($this->urlGenerator->generate('profile_index'));
         //throw new \Exception('TODO: provide a valid redirect inside ' . __FILE__);
     }
 
