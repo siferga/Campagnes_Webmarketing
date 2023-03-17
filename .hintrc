@@ -1,0 +1,33 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "@-ms-viewport",
+          "-webkit-text-decoration-skip",
+          "-webkit-tap-highlight-color",
+          "-webkit-overflow-scrolling",
+          "-webkit-text-size-adjust",
+          "orphans",
+          "@-ms-viewport",
+          "@-ms-viewport",
+          "@-ms-viewport",
+          "widows",
+          "widows",
+          "widows",
+          "widows",
+          "@page",
+          "@-ms-viewport",
+          "widows",
+          "@-ms-viewport",
+          "@-ms-viewport",
+          "@-ms-viewport"
+        ]
+      }
+    ]
+  }
+}
