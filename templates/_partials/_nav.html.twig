@@ -6,7 +6,7 @@
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<div class="collapse navbar-collapse flex-row-reverse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<li
 					class="nav-item">
@@ -14,28 +14,28 @@
 					<a class="nav-link active" aria-current="page" href="{{ path('main') }}">Accueil</a>
 				</li>
 				{#<li class="nav-item">
-																																																					<a class="nav-link" href="{{ path('campaign_index') }}">Liste de campagnes</a>
-																																																				</li>
-																																																				<li class="nav-item dropdown">
-																																																					<a class="nav-link dropdown-toggle" href="{{ path('main') }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-																																																						Campagnes
-																																																					</a>
-																																																					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-																																																						<li>
-																																																							<!-- A CHANGER!!! IL FAUT AFFICHER LE FORMULAIRE POUR CHERCHER LES CAMPAGNES-->
-																																																							<a class="dropdown-item" href="{{ path('campaign_index') }}">Chercher
-																																																							</a>
-																																																						</li>
-																																																						<li>
-																																																							<a class="dropdown-item" href="{{ path('admin_campaign_add') }}">Ajouter</a>
-																																																						</li>
-																																																						<li><hr class="dropdown-divider"></li>
-																																																						<li>
-																																																							<a class="dropdown-item" href="{{ path('main') }}">Details</a>
-																																																						</li>
-																																																
-																																																					</ul>
-																																																				</li>#}
+																																																									<a class="nav-link" href="{{ path('campaign_index') }}">Liste de campagnes</a>
+																																																								</li>
+																																																								<li class="nav-item dropdown">
+																																																									<a class="nav-link dropdown-toggle" href="{{ path('main') }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+																																																										Campagnes
+																																																									</a>
+																																																									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+																																																										<li>
+																																																											<!-- A CHANGER!!! IL FAUT AFFICHER LE FORMULAIRE POUR CHERCHER LES CAMPAGNES-->
+																																																											<a class="dropdown-item" href="{{ path('campaign_index') }}">Chercher
+																																																											</a>
+																																																										</li>
+																																																										<li>
+																																																											<a class="dropdown-item" href="{{ path('admin_campaign_add') }}">Ajouter</a>
+																																																										</li>
+																																																										<li><hr class="dropdown-divider"></li>
+																																																										<li>
+																																																											<a class="dropdown-item" href="{{ path('main') }}">Details</a>
+																																																										</li>
+																																																				
+																																																									</ul>
+																																																								</li>#}
 
 			</ul>
 			<ul
@@ -54,15 +54,15 @@
 
 					{% endif %}
 					<!-- <li class="nav-item">
-																																																																																																																																													<a class="nav-link" href="#">Mon compte</a>
-																																																																																																																																												</li>-->
+																																																																																																																																																		<a class="nav-link" href="#">Mon compte</a>
+																																																																																																																																																	</li>-->
 					<li class="nav-item">
 						<a class="nav-link" href="{{ path('app_logout') }}">Deconnexion</a>
 					</li>
 				{% else %}
 					{#<li class="nav-item">
-																																																			<a class="nav-link" href="{{ path('app_register') }}">Inscription</a>
-																																																		</li>#}
+																																																								<a class="nav-link" href="{{ path('app_register') }}">Inscription</a>
+																																																							</li>#}
 					<li class="nav-item">
 						<a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
 					</li>
