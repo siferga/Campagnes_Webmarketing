@@ -1,8 +1,30 @@
 .table {
-    color: blue;
+    color: rgb(2, 3, 2);
 
 }
 
 .primary {
     background-color: rgb(42, 165, 48);
+    color: rgb(42, 165, 48);
+}
+
+.row {
+    flex-wrap: nowrap;
+}
+
+.card-header {
+    text-decoration: none;
+    color: black;
+}
+
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.navbar-nav {}
+
+a.btn {
+    margin: 4%;
 }
