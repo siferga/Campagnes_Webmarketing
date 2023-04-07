@@ -47,7 +47,11 @@ class UsersAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($targetPath);
         }
 
+<<<<<<< HEAD
         // redirection vers main (accueil)
+=======
+        // redirection to profile page
+>>>>>>> d9f6fd86d2c39aa24b599a7906f13c7e8ad8aab5
         return new RedirectResponse($this->urlGenerator->generate('profile_index'));
         //throw new \Exception('TODO: provide a valid redirect inside ' . __FILE__);
     }

@@ -12,7 +12,10 @@ class MainController extends AbstractController
     #[Route('/', name: 'main')]
     public function index(): Response
     {
+<<<<<<< HEAD
         /* $this->denyAccessUnlessGranted('ROLE_ADMIN');*/
+=======
+>>>>>>> d9f6fd86d2c39aa24b599a7906f13c7e8ad8aab5
         // $this->denyAccessUnlessGranted(['ROLE_EDIT', 'ROLE_ADMIN']);
         // return $this->render('main/index.html.twig', [
         // 'category' => $categoryRepository->findBy(

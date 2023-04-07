@@ -30,7 +30,11 @@ class RegistrationController extends AbstractController
     ): Response {
         //Create a new user 
         $user = new User();
+<<<<<<< HEAD
         //create a form 
+=======
+        //create  form 
+>>>>>>> d9f6fd86d2c39aa24b599a7906f13c7e8ad8aab5
         $form = $this->createForm(RegistrationFormType::class, $user);
         //gestion du formulaire
         $form->handleRequest($request);
@@ -112,7 +116,11 @@ class RegistrationController extends AbstractController
         return $this->redirectToRoute('app_login');
     }
 
+<<<<<<< HEAD
     /* #[Route('/renvoiverif', name: 'resend_verif')]
+=======
+    #[Route('/renvoiverif', name: 'resend_verif')]
+>>>>>>> d9f6fd86d2c39aa24b599a7906f13c7e8ad8aab5
     public function resendVerif(JWTService $jwt, SendMailService $mail, UserRepository $userRepository): Response
     { //getting the connected user
         $user = $this->getUser();
@@ -153,5 +161,9 @@ class RegistrationController extends AbstractController
 
         $this->addFlash('success', 'Email de vérification envoyé');
         return $this->redirectToRoute('profile_index');
+<<<<<<< HEAD
     }*/
+=======
+    }
+>>>>>>> d9f6fd86d2c39aa24b599a7906f13c7e8ad8aab5
 }

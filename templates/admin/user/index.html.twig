@@ -18,7 +18,11 @@
 						<td>Prénom</td>
 						<td>Nom</td>
 						<td>Email</td>
+<<<<<<< HEAD
 						<!--<td>Role</td>-->
+=======
+						<td>Role</td>
+>>>>>>> d9f6fd86d2c39aa24b599a7906f13c7e8ad8aab5
 						<td>Vérifié</td>
 						<td>Actions</td>
 
@@ -31,6 +35,7 @@
 						<td>{{ user.firstname }}</td>
 						<td>{{ user.lastname }}</td>
 						<td>{{ user.email }}</td>
+<<<<<<< HEAD
 						<!--<td>
 																			{#{% for role in user.roles %}
 																				{% if role == "ROLE_ADMIN" %}
@@ -45,6 +50,22 @@
 																				<span class="badge bg-secondary">{{ name }}</span>
 																			{% endfor %}#}
 																		</td>-->
+=======
+						<td>
+							{% for role in user.roles %}
+								{% if role == "ROLE_ADMIN" %}
+									{% set name = "Admin" %}
+									{#{% set color = "danger" %}#}
+								{% elseif role == "ROLE_CAMPAIGN_ADMIN" %}
+									{% set name = "Admin Campaigne" %}
+									{#{% set color = "success" %}#}
+								{% else %}
+									{% set name = "Utilisateur" %}
+								{% endif %}
+								<span class="badge bg-secondary">{{ name }}</span>
+							{% endfor %}
+						</td>
+>>>>>>> d9f6fd86d2c39aa24b599a7906f13c7e8ad8aab5
 						<td>
 							<div class="form-check form-switch">
 								<imput class="form-check-imput" type="checkbox" role="switch" id="switch{{ user.id }}" checked disable>
