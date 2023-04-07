@@ -51,7 +51,7 @@ class UserFixtures extends Fixture
             $manager->persist($user);
         }
 
-
+        //inscrire dans la base de données
         $manager->flush();
     }
 }

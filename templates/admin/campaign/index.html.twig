@@ -1,63 +1,51 @@
 {% extends "base.html.twig" %}
 
-{% block title %}liste de produits
+{% block title %}liste de Campagnes Webmarketing
 {% endblock %}
 
 {% block body %}
-	<div class=" container mt-20">
-		<section class="row">
-			<div class="col-12">
-				<h1>Liste des campagnes Marketing</h1>
-			</div>
-
-			<div class="table-responsive">
-				<table class="table table-striped table-hover table-bordered table-sm ">
+	<div class="container">
+		<div class="row">
+			{% include "_partials/_administration.html.twig" %}
+			<main class="col-9 border border-light bg-white p-2">
+				<h1>Liste des campagnes Webmarketing</h1>
+				<table class="table">
 					<thead>
 						<tr>
 							<td>id</td>
 							<td>Campagne</td>
 							<td>Description</td>
 							<td>Prix/Jour</td>
+							<td>Catégorie</td>
 							<td>Actions</td>
 						</tr>
 					</thead>
-					{% for campaign in allCampaigns %}
-						<tr>
-							<td>{{ campaign.id }}</td>
-							<td>{{ campaign.name }}</td>
-							<td>{{ campaign.description }}</td>
-							<td>{{ campaign.price }}</td>
-							<!-- adding a button to each campaign -->
-							<td style="=" font-size:30%;>
-								<a class="btn btn-primary btn-sm" href="{{ campaign.id }}" role="button">Edit</a>
-								<a class="btn btn-primary btn-sm" href="{{ campaign.id }}" role="button">Delete</a>
-							</td>
-							<td>
-								<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 mb-6">
-									<a href="{{ campaign.id }}" class="btn btn-primary my-2 btn-lg active" role="button" aria-pressed="true">Voir</a>
-									<a href="{{ campaign.id }}" class="btn btn-primary my-2">Modifier</a>
-
-								</div>
-
-							</td>
-							<td style="font-size:10x;">
-
-								<button type="button" class="btn btn-info barcode" data-keyboard="false" data_backdrop="static" role="link" onclick="window.location='../escanearUsuario.php?numero_empleado=<?=md5($numero_empleado)?>'" title="PROCESAR EMPLEADO">
-									<span class="glyphicon glyphicon-barcode">modifier</span>
-								</button>
-
-								<button type="button" class="btn btn-primary time" data-keyboard="false" data_backdrop="static" role="link" onclick="window.location='..historialUsuario.php?numero_empleado=<?=md5($numero_empleado)?>'" title="HISTORIAL DE USUARIO">
-									<span class="glyphicon glyphicon-time">voir</span>
-								</button>
-
-							</td>
-						</tr>
-					{% endfor %}
+					<tbody>
+						{% for campaign in allCampaigns %}
+							<tr>
+								<td>{{ campaign.id }}</td>
+								<td>{{ campaign.name }}</td>
+								<td>{{ campaign.description }}</td>
+								<td>{{ campaign.price }}</td>
+								<td>{{ campaign.category.name }}</td>
+								<!-- adding a button to each campaign -->
+								<td>
+									<a class="btn btn-primary btn-sm" href="{{ path('admin_campaign_edit', {id: campaign.id}) }}" role="button">Modifier</a>
+									<a class="btn btn-primary" href="{{ path('admin_campaign_delete', {id: campaign.id}) }}" role="button">Effacer</a>
+								</td>
+								<!--<td>
+																																																																																																																																																																																																																																																																																																												<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 mb-6">
+																																																																																																																																																																																																																																																																																																													<a href="{#{{ campaign.id }}" class="btn btn-primary my-2 btn-lg active" role="button" aria-pressed="true">Voir</a>
+																																																																																																																																																																																																																																																																																																													<a href="{{ id:campaign.id }}#}" class="btn btn-primary my-2">Modifier</a>
+																																																																																																																																																																																																																																																																																																			
+																																																																																																																																																																																																																																																																																																												</div>
+																																																																																																																																																																																																																																																																																																			
+																																																																																																																																																																																																																																																																																																											</td>-->
+							</tr>
+						{% endfor %}
+					</tbody>
 				</table>
-				<caption>
-					Table de campagnes
-				</caption>
-			</div>
-		</section>
+			</main>
+		</div>
 	</div>
 {% endblock %}

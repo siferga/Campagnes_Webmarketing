@@ -12,7 +12,7 @@ class CategoryController extends AbstractController
 {
 
     #[Route('/', name: '_index',)]
-    //
+    //Rcuperer le categorieRepository
     public function index(CategoryRepository $categoryRepository): Response
     { //pas de criteres, nous récuperons tout par asc category order 
         $allCategories = $categoryRepository->findBy([], ['categoryOrder' => 'asc']);

@@ -10,19 +10,21 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/categories', name: 'categories')]
+#[Route('/categorie', name: 'category_')]
 class CategoryController extends AbstractController
 {
-    #[Route('/', name: '_index')]
+    /*#[Route('/', name: 'index')]
     public function afficherCategories(ManagerRegistry $doctrine): Response
     {
-        $allCategories = $doctrine->getRepository(Categories::class)->findAll();
+        $allCategories = $doctrine->getRepository(Category::class)->findAll();
 
         return $this->render('category/index.html.twig', [
             'controller_name' => 'CategoryController',
             'category' => '$category',
             'allCategories' => $allCategories,
-        ]); //On va chercher le numéro de page dans l'url
+        ]);
+
+        //On va chercher le numéro de page dans l'url
         //$page = $request->query->getInt('page', 1);
 
         //On va chercher la liste des produits de la catégorie
@@ -35,9 +37,9 @@ class CategoryController extends AbstractController
         //'category' => $category,
         // 'products' => $products
         //]);
-    }
+    }*/
 
-    #[Route('/{slug}', name: '_list')]
+    #[Route('/{slug}', name: 'list')]
     public function list(Category $category, CampaignRepository $campaignRepository, Request $request): Response
     {
         //On va chercher le numéro de page dans l'url

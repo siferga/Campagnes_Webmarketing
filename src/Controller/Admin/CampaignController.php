@@ -43,24 +43,24 @@ class CampaignController extends AbstractController
         ]);
     }
 
-
+    // to add campaign 
     #[Route('/ajout', name: '_add')]
     public function add(Request $request, EntityManagerInterface $em, SluggerInterface $slugger): Response
     {
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
-        //On crée un "nouveau produit"
+        //Create a new campaign
         $campaign = new Campaign();
 
-        // On crée le formulaire
+        //create the form
         $campaignForm = $this->createForm(CampaignFormType::class, $campaign);
 
-        // Requête du formulaire
+        // Form request 
         $campaignForm->handleRequest($request);
 
-        //On vérifie si le formulaire est soumis ET valide
+        //check the submit and validation form
         if ($campaignForm->isSubmitted() && $campaignForm->isValid()) {
-            // On génère le slug
+            // Slug generation
             $slug = $slugger->slug($campaign->getName());
             $campaign->setSlug($slug);
 
@@ -68,13 +68,13 @@ class CampaignController extends AbstractController
             $prix = $campaign->getPrice();
             $campaign->setPrice($prix);
 
-            // On stocke
+            // stocke 
             $em->persist($campaign);
             $em->flush();
 
             $this->addFlash('success', 'Campagne ajouté avec succès');
 
-            // On redirige
+            // Redirection
             return $this->redirectToRoute('admin_campaign_index');
         }
 
@@ -83,8 +83,8 @@ class CampaignController extends AbstractController
             'campaignForm' => $campaignForm->createView()
         ]);
 
-        // return $this->renderForm('admin/products/add.html.twig', compact('productForm'));
-        // ['productForm' => $productForm]
+        // return $this->renderForm('admin/campaign/add.html.twig', compact('campaignForm'));
+        // ['campaignForm' => $campaignForm]
     }
 
     #[Route('/edition/{id}', name: '_edit')]
@@ -92,7 +92,6 @@ class CampaignController extends AbstractController
     {
         // On vérifie si l'utilisateur peut éditer avec le Voter
         // $this->denyAccessUnlessGranted('PRODUCT_EDIT', $product);
-        $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
         // On divise le prix par 100
         $prix = $campaign->getPrice() / 100;
@@ -127,7 +126,9 @@ class CampaignController extends AbstractController
 
 
         return $this->render('admin/campaign/edit.html.twig', [
-            'campaignForm' => $campaignForm->createView()
+            'campaignForm' => $campaignForm->createView(),
+            'campaign' => '$campaign'
+
         ]);
 
         //return $this->renderForm('admin/products/edit.html.twig', compact('campaignForm'));
@@ -138,7 +139,7 @@ class CampaignController extends AbstractController
     public function delete(Campaign $campaign): Response
     {
         // On vérifie si l'utilisateur peut supprimer avec le Voter
-        $this->denyAccessUnlessGranted('PRODUCT_DELETE', $campaign);
+        // $this->denyAccessUnlessGranted('PRODUCT_DELETE', $campaign);
 
         return $this->render('admin/campaign/index.html.twig');
     }

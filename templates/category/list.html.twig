@@ -17,7 +17,8 @@
 						<div class="card-body">
 							<h2 class="card-title">{{ campaign.name }}</h2>
 							<p class="card-text">{{ campaign.description }}</p>
-							<a href="{{ path('products_details', {"slug": campaign.slug }) }}" class="btn btn-primary">Voir les détails</a>
+							<!-- to look for the slug-->
+							<a href="{{ path('campaign_details', {"slug": campaign.slug }) }}" class="btn btn-primary">Voir les détails</a>
 						</div>
 					</article>
 				</div>

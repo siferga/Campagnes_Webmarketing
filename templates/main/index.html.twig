@@ -1,27 +1,36 @@
 {% extends 'base.html.twig' %}
 
+
 {% block title %}Liste des Campagnes Marketing
 
 {% endblock %}
 
 
 {% block body %}
-	{#{% include "_partials/_nav.html.twig" %}#}
 
-	<main class="container">
-		<section class="py-5 text-center container">
-			<div class="row py-lg-5">
-				<div class="col-lg-6 col-md-8 mx-auto">
-					<h1 class="fw-light">Campagnes Marketing</h1>
-					<p class="lead text-muted">Merci de choisir votre preference de recherche</p>
-					<p>
-						<a href="products_index" class="btn btn-primary  btn-lg m-2">Par campagne</a>
-						<a href="#" class="btn btn-primary  btn-lg m-2">Par client</a>
-						<a href="#" class="btn btn-primary  btn-lg m-2">par catégorie</a>
-					</p>
-				</div>
+</div>
+{#{% include "_partials/_nav.html.twig" %}#}
+
+<main class="container">
+	<section class="py-5 text-center container">
+		<div class="row py-lg-5">
+			<div class="col-lg-6 col-md-8 mx-auto">
+				<h1 class="fw-light">Campagnes Marketing</h1>
+				<p class="lead text-muted">Merci de choisir votre preference de recherche</p>
+				<p>
+					<!--<a href="{{ path('campaign_index') }}" class="btn btn-primary  btn-lg m-2">Inscription</a>-->
+					<a href="{{ path('app_login') }}" class="btn btn-primary  btn-lg m-2">Connexion</a>
+					<a href="https://www.google.com/" class="btn btn-primary  btn-lg m-2">+ Info</a>
+
+				</p>
 			</div>
-		</section>
-
-	</main>
-{% endblock %}
+		</div>
+	</section>
+</main>
+<!-- Background image -->
+<div
+	class="bg-image" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+		
+																																																																	            height: 100vh"><!-- 100% of available height. -->
+</div>
+<!-- Background image -->{% endblock %}

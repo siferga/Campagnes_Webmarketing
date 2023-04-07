@@ -70,12 +70,12 @@ class OrderDetail
         return $this;
     }
 
-    public function getProducts(): ?Campaign
+    public function getCampaign(): ?Campaign
     {
         return $this->campaign;
     }
 
-    public function setProducts(?Campaign $campaign): self
+    public function setCampaign(?Campaign $campaign): self
     {
         $this->campaign = $campaign;
 

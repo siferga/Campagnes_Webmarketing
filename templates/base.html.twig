@@ -4,8 +4,8 @@
 		<meta charset="UTF-8">
 		<title>
 			{% block title %}Accueil
-			{% endblock %}
-			- Site e-commerce Symfony 6</title>
+			{% endblock %}Site Symfony 6</title>
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
 		<meta
 		name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -13,7 +13,6 @@
 		<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}"> {% block stylesheets %}{% endblock %}
 		<link
 		rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
-
 
 		<!-- JS -->
 		<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}" defer></script>
@@ -31,19 +30,17 @@
 				<div class="col d-flex justify-content-center">
 					{% if app.user and app.user.isVerified == false %}
 						<span class="text-center" style="color:white;">Bienvenue
-							{{ app.user.email }}
 							<div class="alert alert-warning alert-dismissible" role="alert">
 								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 								<div class="alert-message">
 									<strong>Votre compte n'est pas activé</strong>,
-									<a href="{{ path('resend_verif') }}">renvoyer le lien d'activation</a>
+									<a href="{{path('resend_verif') }}">renvoyer le lien d'activation</a>
 								</div>
 							</div>
 						</span>
 					{% else %}
 						<span class="text-center" style="color:white;">
-							<h5>Merci de vous connecter
-							</h5>
+							<h5></h5>
 
 						</span>
 					{% endif %}
@@ -51,7 +48,7 @@
 			</div>
 		</div>
 
-		<!--afficher les messages-->
+		<!-- to include messagess-->
 		{% include "_partials/_flash.html.twig" %}
 
 		{% block body %}{% endblock %}

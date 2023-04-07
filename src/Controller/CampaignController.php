@@ -13,15 +13,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/campagne', name: 'campaign_')]
 class CampaignController extends AbstractController
-{ //Liste affiche campagnes
 
+{ //Display Campaign List (all)
     #[Route('/', name: 'index')]
     public function afficherCampagnes(ManagerRegistry $doctrine): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        // $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
         $allCampaigns = $doctrine->getRepository(Campaign::class)->findAll();
-
         return $this->render('campaign/index.html.twig', [
             'controller_name' => 'CampaignController',
             'campaign' => '$campaign',
@@ -29,10 +28,11 @@ class CampaignController extends AbstractController
         ]);
     }
 
-    #[Route('/details', name: 'details')]
+
+    /* #[Route('/details', name: 'details')]
     public function details(ManagerRegistry $doctrine): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        //$this->denyAccessUnlessGranted('ROLE_ADMIN');
 
         $allCampaigns = $doctrine->getRepository(Campaign::class)->findAll();
         return $this->render('campaign/details.html.twig', [
@@ -40,8 +40,9 @@ class CampaignController extends AbstractController
             'campaign' => '$campaign',
             'allCampaigns' => $allCampaigns,
         ]);
-    }
+    }*/
 
+    //Display Campaign List by category (all)
     #[Route('/{slug}', name: 'details')]
     public function list(Category $category, CampaignRepository $campaignRepository, Request $request): Response
     {
@@ -54,7 +55,7 @@ class CampaignController extends AbstractController
         //Cherche la liste des produits de la catégorie
         $campaign = $campaignRepository->getCampaign($category->getSlug());
 
-        return $this->render('category/details.html.twig', [
+        return $this->render('campaign/details.html.twig', [
             'category' => $category,
             'campaign' => $campaign
         ]);
