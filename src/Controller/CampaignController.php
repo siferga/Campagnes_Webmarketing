@@ -28,10 +28,6 @@ class CampaignController extends AbstractController
         ]);
     }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> d9f6fd86d2c39aa24b599a7906f13c7e8ad8aab5
     /* #[Route('/details', name: 'details')]
     public function details(ManagerRegistry $doctrine): Response
     {
